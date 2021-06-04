@@ -1,9 +1,10 @@
+
 const firstName = document.getElementById("first-name");
 const lastName = document.getElementById("last-name");
 const address = document.getElementById("address");
 const city = document.getElementById("city");
 const email = document.getElementById("email");
-const submitButton = document.getElementById("submit-button");
+
 
 const parentElement = document.getElementById('bearCards');
 bearcard = document.createElement('div');
@@ -68,7 +69,7 @@ function removeProduct(e){
         if (newbearobjects.length === 0){
           totalItemPrice = 0;       
         } else {
-          totalItemPrice += (newbearobjects[i].price)/100;
+          totalItemPrice += (newbearobjects[i].price);
           }
         localStorage.setItem('totalPrice', JSON.stringify(totalItemPrice));
       }
@@ -79,15 +80,12 @@ function removeProduct(e){
 
 // Compiling the data from the contact form into an object
 
-// const firstNameInput = document.getElementById('first-name');
-// const lastNameInput = document.getElementById('last-name');
-// const addressInput = document.getElementById('address');
-// const cityInput = document.getElementById('city');
-// const emailInput = document.getElementById('email');
-// const submitButton = document.getElementById('submit-button');
-
-// const products = "bears"
-// const api = "http://localhost:3000/api/" + products + "/";
+const firstNameInput = document.getElementById('first-name');
+const lastNameInput = document.getElementById('last-name');
+const addressInput = document.getElementById('address');
+const cityInput = document.getElementById('city');
+const emailInput = document.getElementById('email');
+const submitButton = document.getElementById('submit-button');
 
 // const responseFirstName = document.getElementById('response-firstname');
 // const responseLastName = document.getElementById('response-lastname');
@@ -97,24 +95,84 @@ function removeProduct(e){
 // const responseProducts = document.getElementById('response-products');
 
 // submitButton.addEventListener('click', ($event) => {
-//   $event.preventDefault();
-//   let getIdOfProducts = JSON.parse(localStorage.getItem('selectedItem'));
-//   let idArray = [];
-//   for (let i = 0; i<getIdOfProducts.length; i++){
-//   idArray.push(getIdOfProducts[i]._id);
-//   }
+//       $event.preventDefault();
+      
+//       let getIdOfProducts = JSON.parse(localStorage.getItem('selectedItem'));
+//       let idArray = [];
+//       for (let i = 0; i<getIdOfProducts.length; i++){
+//       idArray.push(getIdOfProducts[i]._id);
+//     }
+// debugger;
+//     const productArray = idArray;
+//     console.log(productArray);
+//     let contactObject = Array.from(document.querySelectorAll('#form-submit input')).reduce((acc, input) => ({ ...acc, [input.id]: input.value}), {});
+//     console.log(contactObject);
 
-//   const productArray = idArray;
-//   const post = [{
-//     firstName: firstNameInput.value,
-//     lastName: lastNameInput.value,
-//     address: addressInput.value,    
-//     city: cityInput.value,
-//     email: emailInput.value
-//   },
-//   productArray
-//   submitFormData(post];
+// Function that creates an object containing the contact object and products array
+
+  function compile(){
+
+
+
+    let getIdOfProducts = JSON.parse(localStorage.getItem('selectedItem'));
+    let idArray = [];
+    for (let i = 0; i<getIdOfProducts.length; i++){
+    idArray.push(getIdOfProducts[i]._id);
+    }
+    // let idString = idArray.toString();
+      
+   let post = {
+    "contact": {
+      "firstName": firstNameInput.value,
+      "lastName": lastNameInput.value,
+      "address": addressInput.value,    
+      "city": cityInput.value,
+      "email": emailInput.value
+    },
+    "products": idArray
+  }
+
+ fetch('http://localhost:3000/api/teddies/order', {
+      method: 'POST', // or 'PUT'
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(post),
+      })
+
+      .then(response => response.json())
+      .then(post => {
+        //let finalPrice = post.
+        let finalId = post.orderId;
+        console.log(finalId);
+        //localStorage.setItem('macska', finalId);
+        //console.log(summaryID);
+      console.log('Success:', post);    
+      })
+    .catch((error) => {
+    console.error('Error:', error);
+  });
+
+  console.log(JSON.stringify(post));
   
+}
+
+compilebutton = document.getElementById('testbutton')
+compilebutton.onclick = compile;
+
+
+
+
+
+// Funtion to grab the order confirmation ID
+
+// function getOrderConfirmationId(responseId) {
+//   let orderId = responseId.orderId;
+//   console.log(orderId);
+//   localStorage.setItem("orderConfirmationId", orderId);
+// }
+
+
   
 // });
 
