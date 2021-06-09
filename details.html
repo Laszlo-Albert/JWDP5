@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/6d460ba27d.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>Order Details</title>
@@ -12,34 +16,46 @@
         <div class="container">
             <div class="row">
                 <div class="col-8 logo">Orinoco</div>
-                <div class="col">Sign Up</div>
-                <div class="col">Log In</div>
-                <div class="col-2 btn openBasket" id="openBasket">View Basket</div>
+                <div class="col signup text-right">Sign Up</div>
+                <div class="col login text-right">Log In</div>
+                <div id="openBasket" class="col-2 openBasket text-right">Open Basket</div>
             </div>
         </div>
     </header>
     <section>
         <div class="container" id="productdetails">
             <div class="row">
-                <div class="col-6"><img src="" alt=""></div>
-                <div class="col-6 flex">
-                    <select class ="dropdown" name = "color" id="dropdown">
-                        <option value="">Choose a color</option>
-                        </select>
-                    <div class="row" id="price"></div>
+                <div class="col-6"><img id="img_detailed" src="" alt=""></div>
+                <div class="col-1"></div>
+                <div class="col-4 flex">
+
                     <div class="row" id="description">Description</div>
+                    
+                    <div class="row" id="price"></div>
+
+                    <select class ="dropdown" name = "color" id="dropdown">
+                        <option id="dropdown-content" value="">Choose a color</option>
+                    </select>
+                    
                     <div class="btn" id="addToBasket">Add to basket</div>
+                    
+                    <h4 class="review">Write the first review...</h4>
 
                 </div>
+                <div class="col-1"></div>
             </div>
         </div>
     </section>
     <footer class="fixed-bottom">
         <div class="container">
             <div class="row">
-                <div class="col-8">Social Media Icons</div>
-                <div class="col-2">Contact</div>
-                <div class="col-2">About</div>
+                <div class="col-10">
+                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                </div>
+                <div class="col contact">Contact</div>
+                <div class="col text-right about">About</div>
             </div>
         </div>
     </footer>

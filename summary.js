@@ -1,8 +1,7 @@
-let beka = document.getElementById("orderId");
-console.log(beka);
-beka.innerHTML = localStorage.getItem('macska');
+let idToDisplay = document.getElementById("orderId");
+idToDisplay.innerHTML = "You can track your order using the following code:  " + localStorage.getItem('macska');
 
-let kazuar = document.getElementById("orderPrice");
-kazuar.innerHTML = localStorage.getItem('totalPrice');
+let priceToDisplay = document.getElementById("orderPrice");
+priceToDisplay.innerHTML = "Total value of transaction is: $" + localStorage.getItem('totalPrice');
 
 

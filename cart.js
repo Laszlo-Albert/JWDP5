@@ -25,6 +25,7 @@ for (let bear of bearobjects) {
 
     deleteButton = document.createElement('button');
     deleteButton.setAttribute('class', 'deleteButton');
+    deleteButton.textContent = "Remove";
     deleteButton.onclick = removeProduct;
     
     
@@ -99,7 +100,6 @@ function validateEmail() {
      document.Form.Email.focus() ;
      return false;
   }
-  window.location.href = "summary.html"
 }
 
 // Function that validates user input
@@ -183,5 +183,5 @@ function validate() {
   validate(); 
 }
 
-compilebutton = document.getElementById('testbutton')
+compilebutton = document.getElementById('submit-button')
 compilebutton.onclick = compile;

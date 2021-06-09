@@ -16,9 +16,7 @@ const generateSinglePage = () => {
 let urlParams = new URLSearchParams(window.location.search);
 // console.log(urlParams);
 
-let teddyId = urlParams.get ('id'); // Optional - create a function that takes in parameters
-// console.log(teddyId);
-
+let teddyId = urlParams.get ('id'); 
 
 // Function that’s going to display the data from the API
 
@@ -26,7 +24,7 @@ const showTeddyData = (bears) => {
     for (let bear of bears) {
         if (bear._id == teddyId) {
             document.querySelector('img').src = bear.imageUrl
-            document.getElementById('price').textContent = bear.price
+            document.getElementById('price').textContent = "$" + bear.price
             document.getElementById('description').textContent = bear.description
 
             const szinek = bear.colors
@@ -54,20 +52,6 @@ const showTeddyData = (bears) => {
             // function openBasket() {
             // window.location.href = "cart.html";
             // }
-
-
-            // Function declaration to register the selected color option of the product
-            // It proved to be unnecessary because it is not a requirement in this iteration
-
-            // Event listener for the delete button
-
-            // let removeFromBasketButton = document.getElementById('removeFromBasket')
-            // removeFromBasketButton.addEventListener('click', removeFromBasket);
-
-            // Event listener for the view basket button
-
-            // let viewBasketButton = document.getElementById('viewBasket')
-            // viewBasketButton.addEventListener('click', viewBasket);
 
             // Event listener for the add button
 
