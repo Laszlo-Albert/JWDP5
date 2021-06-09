@@ -108,11 +108,61 @@ const submitButton = document.getElementById('submit-button');
 //     let contactObject = Array.from(document.querySelectorAll('#form-submit input')).reduce((acc, input) => ({ ...acc, [input.id]: input.value}), {});
 //     console.log(contactObject);
 
+// Email validation
+
+function validateEmail() {
+  let emailID = document.Form.Email.value;
+  atposition = emailID.indexOf("@");
+  dotposition = emailID.lastIndexOf(".");
+  
+  if (atposition < 1 || ( dotposition - atposition < 2 )) {
+     alert("Please enter correct email ID")
+     document.Form.Email.focus() ;
+     return false;
+  }
+  window.location.href = "summary.html"
+}
+
+// Function that validates user input
+
+function validate() {
+      
+  if (document.Form.FirstName.value == "" ) {
+     alert( "Please provide your first name!" );
+     document.Form.FirstName.focus() ;
+     return false;
+  }
+
+  if (document.Form.LastName.value == "" ) {
+    alert( "Please provide your last name!" );
+    document.Form.FirstName.focus() ;
+    return false;
+ }
+
+  if( document.Form.Email.value == "" ) {
+     alert( "Please provide your Email!" );
+     document.Form.Email.focus() ;
+     return false;
+  }
+
+  validateEmail();
+
+
+  if (document.Form.Address.value == "" ) {
+    alert( "Please provide your name!" );
+    document.Form.Address.focus() ;
+    return false;
+ }
+
+  if( document.Form.City.value == "-1" ) {
+     alert( "Please provide your city!" );
+     return false;
+  }
+}
+
 // Function that creates an object containing the contact object and products array
 
   function compile(){
-
-
 
     let getIdOfProducts = JSON.parse(localStorage.getItem('selectedItem'));
     let idArray = [];
@@ -145,8 +195,7 @@ const submitButton = document.getElementById('submit-button');
         //let finalPrice = post.
         let finalId = post.orderId;
         console.log(finalId);
-        //localStorage.setItem('macska', finalId);
-        //console.log(summaryID);
+        localStorage.setItem('macska', finalId);
       console.log('Success:', post);    
       })
     .catch((error) => {
@@ -154,6 +203,8 @@ const submitButton = document.getElementById('submit-button');
   });
 
   console.log(JSON.stringify(post));
+  validate();
+   
   
 }
 
