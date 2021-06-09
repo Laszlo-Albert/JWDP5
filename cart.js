@@ -87,27 +87,6 @@ const cityInput = document.getElementById('city');
 const emailInput = document.getElementById('email');
 const submitButton = document.getElementById('submit-button');
 
-// const responseFirstName = document.getElementById('response-firstname');
-// const responseLastName = document.getElementById('response-lastname');
-// const responseAddress = document.getElementById('response-address');
-// const responseCity = document.getElementById('response-city');
-// const responseEmail = document.getElementById('response-email');
-// const responseProducts = document.getElementById('response-products');
-
-// submitButton.addEventListener('click', ($event) => {
-//       $event.preventDefault();
-      
-//       let getIdOfProducts = JSON.parse(localStorage.getItem('selectedItem'));
-//       let idArray = [];
-//       for (let i = 0; i<getIdOfProducts.length; i++){
-//       idArray.push(getIdOfProducts[i]._id);
-//     }
-// debugger;
-//     const productArray = idArray;
-//     console.log(productArray);
-//     let contactObject = Array.from(document.querySelectorAll('#form-submit input')).reduce((acc, input) => ({ ...acc, [input.id]: input.value}), {});
-//     console.log(contactObject);
-
 // Email validation
 
 function validateEmail() {
@@ -147,7 +126,6 @@ function validate() {
 
   validateEmail();
 
-
   if (document.Form.Address.value == "" ) {
     alert( "Please provide your name!" );
     document.Form.Address.focus() ;
@@ -169,7 +147,6 @@ function validate() {
     for (let i = 0; i<getIdOfProducts.length; i++){
     idArray.push(getIdOfProducts[i]._id);
     }
-    // let idString = idArray.toString();
       
    let post = {
     "contact": {
@@ -203,60 +180,8 @@ function validate() {
   });
 
   console.log(JSON.stringify(post));
-  validate();
-   
-  
+  validate(); 
 }
 
 compilebutton = document.getElementById('testbutton')
 compilebutton.onclick = compile;
-
-
-
-
-
-// Funtion to grab the order confirmation ID
-
-// function getOrderConfirmationId(responseId) {
-//   let orderId = responseId.orderId;
-//   console.log(orderId);
-//   localStorage.setItem("orderConfirmationId", orderId);
-// }
-
-
-  
-// });
-
-// function makeRequest(data){
-//   return new Promise((resolve, reject) => {
-//     let request = new XMLHttpRequest();
-//     request.open('POST', api + '/order');
-//     request.onreadystatechange = () => {
-//       if (request.readyState === 4) {
-//         if (request.status === 201){
-//           resolve(JSON.parse(request.response));
-//         } else {
-//           reject(JSON.parse(request.response));
-//         }
-//       }
-//     };
-//     request.setRequestHeader('Content-Type', 'application/json');
-//     request.send(JSON.stringify(data));
-//   });
-// }
-
-
-// async function submitFormData(post) {
-//   try {
-//     const requestPromise = makeRequest(post);
-//     const response = await requestPromise;
-//     responseFirstName.textContent = response.post.firstName
-//     responseLastName.textContent = response.post.lastName
-//     responseAddress.textContent = response.post.firstName
-//     responseCity.textContent = response.post.city
-//     responseEmail.textContent = response.post.email
-//     responseProduct.textContent = response.products
-//   } catch (errorResponse) {
-//     responseFirstName.textContent = errorResponse.error
-//   }
-// }

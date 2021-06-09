@@ -1,17 +1,29 @@
-header{
+/* Main Page */
+
+* {
+    background-color: rgb(246, 255, 255);
+}
+
+header {
     padding-top: 20px;
 }
 
 .logo {
-    font-size: x-large;
-    font-style: oblique;
-    font-weight: 500;
+    font-size: 36px;
+    font-family: 'Odibee Sans', cursive;
+    font-weight: 700;
+}
+
+.signup, .login, .openBasket {
+    font-family: 'Odibee Sans', cursive;
+    font-size: 24px;
 }
 
 img {
     width: 100%;
     object-fit: cover;
-    height: 400px;
+    height: 360px;
+    border-radius: 6px;
 }
 
 .img_small {
@@ -31,12 +43,34 @@ h2, h3 {
     padding-bottom: 40px;
 }
 
+h3 {
+    font-size: 20px;
+}
+
 .flex {
     display:flex;
     flex-direction: column;
     align-items: center;
     padding-top: 100px;
 }
+
+.contact, .about {
+    font-family: 'Odibee Sans', cursive;
+    font-size: 20px;
+}
+
+.fa {
+    font-size: 25px;
+    padding-right: 10px;
+}
+
+footer {
+    padding-bottom: 5px;
+    padding-top: 10px;
+    border-top: 3px solid black;
+}
+
+
 
 .basket {
     padding-top: 40px;
