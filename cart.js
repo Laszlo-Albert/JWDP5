@@ -79,6 +79,11 @@ function removeProduct(e){
     }
 }
 
+let link2 = document.getElementById('link2');
+  link2.onclick = function(){
+  window.location.href = 'index.html';
+  }
+
 // Compiling the data from the contact form into an object
 
 const firstNameInput = document.getElementById('first-name');

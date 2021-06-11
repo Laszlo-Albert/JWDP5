@@ -11,7 +11,7 @@ const generateSinglePage = () => {
         showTeddyData(data)
     })
 }
-
+ 
 // Retrieving the ID from the URL
 let urlParams = new URLSearchParams(window.location.search);
 // console.log(urlParams);
@@ -52,6 +52,14 @@ const showTeddyData = (bears) => {
             // function openBasket() {
             // window.location.href = "cart.html";
             // }
+
+            // Link to the main page
+
+            let link = document.getElementById('link');
+                console.log(link);
+                link.onclick = function(){
+                    window.location.href = 'index.html';
+                }
 
             // Event listener for the add button
 

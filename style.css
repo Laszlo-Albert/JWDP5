@@ -14,6 +14,11 @@ header {
     font-weight: 700;
 }
 
+.link {
+    border: none;
+    background: none;
+}
+
 .signup, .login, .openBasket {
     font-family: 'Odibee Sans', cursive;
     font-size: 24px;
