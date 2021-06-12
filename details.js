@@ -36,13 +36,7 @@ const showTeddyData = (bears) => {
                 ddown.appendChild(selection)
             }); 
             
-            //Creating a link to the cart page
-
-            let shoppingBasket = document.getElementById('openBasket')
-
-            shoppingBasket.onclick = function(){
-            window.location.href = "cart.html";
-            };
+            
 
             // Another method to do this would be
             
@@ -53,13 +47,7 @@ const showTeddyData = (bears) => {
             // window.location.href = "cart.html";
             // }
 
-            // Link to the main page
-
-            let link = document.getElementById('link');
-                console.log(link);
-                link.onclick = function(){
-                    window.location.href = 'index.html';
-                }
+            
 
             // Event listener for the add button
 
@@ -70,12 +58,16 @@ const showTeddyData = (bears) => {
                 
                 // get data from the API (the whole object that will be put into the basket)
                 let singleChosenProduct = bear;
+                singleChosenProduct['count'] = 0;
 
                 // If there is nothing saved at the moment, create an empty array
 
                 if (localStorage.getItem('selectedItem') == null){
                     localStorage.setItem('selectedItem', '[]');
                 }
+
+                cartNumbers();
+                location.reload();
 
                 // Get existing data and add new one to it
 
@@ -90,6 +82,10 @@ const showTeddyData = (bears) => {
                 totalPrice += currentBasketContents[i].price;
                 }
 
+                if (singleChosenProduct._id ){
+                    singleChosenProduct.count +=1;
+                }
+
                 // Save the old and new data to local storage
 
                 localStorage.setItem('selectedItem', JSON.stringify(currentBasketContents));
@@ -99,4 +95,39 @@ const showTeddyData = (bears) => {
         }      
     }
 }
+
+// Link to the main page
+
+let link = document.getElementById('link');
+console.log(link);
+link.onclick = function(){
+    window.location.href = 'index.html';
+}
+
+
+//Creating a link to the cart page
+
+let shoppingBasket = document.getElementById('openBasket')
+console.log(shoppingBasket);
+
+shoppingBasket.onclick = function(){
+window.location.href = "cart.html";
+};
+
+// Function that checks and updates the number of items in the cart
+
+function cartNumbers(){
+    let productNumbers = localStorage.getItem('cartNumbers');
+    productNumbers = parseInt(productNumbers);
+    if (productNumbers){
+        localStorage.setItem('cartNumbers', productNumbers + 1);
+    }
+    else {
+        localStorage.setItem('cartNumbers', 1);
+    }    
+}
+
+let badge = document.getElementById('badge');
+badge.textContent = localStorage.getItem('cartNumbers');
+
 

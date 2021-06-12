@@ -53,3 +53,13 @@ window.updateLink = function(link){
     link.setAttribute('href', 'details.html?id=' + link.id);
 }
 
+let shoppingBasket = document.getElementById('openBasket')
+console.log(shoppingBasket);
+
+shoppingBasket.onclick = function(){
+window.location.href = "cart.html";
+};
+
+let badge = document.getElementById('badge');
+badge.textContent = localStorage.getItem('cartNumbers');
+

@@ -19,9 +19,28 @@ header {
     background: none;
 }
 
-.signup, .login, .openBasket {
+#openBasket {
+    border: none;
+    background: none;
+}
+
+/* .fa-shopping-cart {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
+
+.badge {
+    background: #ec5f5a;
+    border-radius: 50%;
+}
+
+.signup, .login, .openBasket, .contact {
     font-family: 'Odibee Sans', cursive;
     font-size: 24px;
+    padding-right: 10px;
+    padding-left: 5px;
 }
 
 img {
@@ -61,7 +80,7 @@ h3 {
     padding-top: 100px;
 }
 
-.contact, .about {
+.about {
     font-family: 'Odibee Sans', cursive;
     font-size: 20px;
 }
@@ -100,7 +119,11 @@ footer {
 }
 
 .btn {
-    background-color: aqua;
+    background: #54C7C3;
+	width:100%;
+	font-weight: 600;
+	color:#fff;
+	padding: 8px 25px;
 }
 
 .dropbtn {
@@ -146,15 +169,22 @@ footer {
 }
 
 .deleteButton {
-    color: #fff !important;
-	border: 1px solid #EA4335;
-	background: #ea4335 !important;
-	width:80%;
+    background: #ec5f5a;
+	width:30px;
+    height: 30px;
 	font-weight: 600;
 	color:#fff;
-	padding: 8px 8px;
-    text-align: center;
-    border-radius: 2px;
+	padding: 0px;
+    align-self:auto;
+}
+
+.addButton {
+    background: #46f580;
+	width:30%;
+    height: 80%;
+	font-weight: 600;
+	color:#fff;
+	padding: 8px 25px;
 }
 
 .img_small {
@@ -170,10 +200,6 @@ footer {
 }
 
 #basket_total_price {
-    text-align: center;
-}
-
-.shopmore {
     text-align: center;
 }
 
@@ -194,6 +220,53 @@ footer {
     padding-top: 50px;
     font-family: 'Open Sans Condensed', sans-serif;
     font-size: 24px;
+}
+
+.product-container {
+    max-width: 650px;
+    justify-content: space-around;
+    margin: 20px;
+    margin-top: 50px;
+}
+
+.product-header {
+    width: 100%;
+    max-width: 650px;
+    display:flex;
+    justify-content: flex-start;
+    border-bottom: 4px solid #54C7C3;
+    margin: 0 auto;
+}
+
+.product-title {
+    width: 45%;
+}
+
+.price {
+    width: 15%;
+    display: flex;
+    align-items: center;
+}
+
+.quantity {
+    width: 30%;
+    display: flex;
+    align-items: center;
+}
+
+.total {
+    width: 15%;
+    display: flex;
+    align-items: center;
+}
+
+.product {
+    width: 45%;
+    display: flex;
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
 }
 
 

@@ -23,10 +23,17 @@ let bearobjects = JSON.parse(localStorage.getItem('selectedItem'));
 
 for (let bear of bearobjects) {
 
+    // bear['count'] = 1;
     deleteButton = document.createElement('button');
-    deleteButton.setAttribute('class', 'deleteButton');
-    deleteButton.textContent = "Remove";
+    deleteButton.setAttribute('class', 'deleteButton btn');
+    deleteButton.textContent = "-";
     deleteButton.onclick = removeProduct;
+
+
+    // addButton = document.createElement('button');
+    // addButton.setAttribute('class', 'addButton btn');
+    // addButton.textContent = "+";
+    // addButton.onclick = addProduct;
     
     
     productBox = document.createElement('div');
@@ -43,16 +50,22 @@ for (let bear of bearobjects) {
     productName = document.createElement('p');
     productName.textContent = bear.name;
 
+    productCount = document.createElement('p');
+    productCount.textContent = bear.count;
+
     bearcard.appendChild(productBox);
     productBox.appendChild(productImage);
     productBox.appendChild(productPrice);
     productBox.appendChild(productName);
+    productBox.appendChild(productCount);
     productBox.appendChild(deleteButton);
 
   };
 
   console.log(bearobjects);
   console.log(totalItemPrice);
+
+  // New function to display cart
 
   // Function to delete an entry from localstorage
 
@@ -66,16 +79,21 @@ function removeProduct(e){
           localStorage.setItem('selectedItem', JSON.stringify(newbearobjects));
           totalItemPrice = 0;
 
-      for (let i = 0; i <= newbearobjects.length; i++){
-        if (newbearobjects.length === 0){
+          let productNumbers = localStorage.getItem('cartNumbers');
+          productNumbers = parseInt(productNumbers);
+          localStorage.setItem('cartNumbers', productNumbers - 1);
+
+        for (let i = 0; i <= newbearobjects.length; i++){
+          if (newbearobjects.length === 0){
           totalItemPrice = 0;       
-        } else {
+          } else {
           totalItemPrice += (newbearobjects[i].price);
           }
-        localStorage.setItem('totalPrice', JSON.stringify(totalItemPrice));
-      }
-      }
-      location.reload();
+          localStorage.setItem('totalPrice', JSON.stringify(totalItemPrice));
+        }
+        }
+      
+      location.reload(); 
     }
 }
 
