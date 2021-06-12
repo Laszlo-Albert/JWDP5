@@ -23,7 +23,7 @@ let bearobjects = JSON.parse(localStorage.getItem('selectedItem'));
 
 for (let bear of bearobjects) {
 
-    // bear['count'] = 1;
+    bear['count'] = 1;
     deleteButton = document.createElement('button');
     deleteButton.setAttribute('class', 'deleteButton btn');
     deleteButton.textContent = "-";
@@ -67,6 +67,38 @@ for (let bear of bearobjects) {
 
   // New function to display cart
 
+  // function displayCart(){
+  //   let cartItems = localStorage.getItem('selectedItem');
+  //   cartItems = JSON.parse(cartItems);
+  //   console.log(cartItems);
+  //   let productContainer = document.querySelector(".products");
+
+  //   console.log(cartItems);
+
+  //   if (cartItems && productContainer){
+  //       productContainer.innerHTML = '';
+  //       Object.values(cartItems).map(bear => {
+  //         productContainer.innerHTML += `
+  //           <div class="product">
+  //             <ion-icon name="trash"></ion-icon>
+  //             <img class="small_img" src="${bear.imageUrl}">
+  //             <span>${bear.name}</span>
+  //           </div>
+
+  //           <div class="price">${bear.price}</div>
+  //           <div class="quantity">
+  //             <ion-icon name="add"></ion-icon>
+  //             <span>${bear.count}</span>
+  //             <ion-icon name="remove"></ion-icon>
+  //           </div>
+  //           <button class="btn deleteButton" id="deleteButton">-</button>
+  //         `
+  //       });
+  //   }
+  // }
+
+  // displayCart();
+
   // Function to delete an entry from localstorage
 
 function removeProduct(e){
@@ -97,7 +129,8 @@ function removeProduct(e){
     }
 }
 
-let link2 = document.getElementById('link2');
+  let link2 = document.getElementById('link2');
+  console.log(link2);
   link2.onclick = function(){
   window.location.href = 'index.html';
   }

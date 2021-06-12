@@ -82,10 +82,6 @@ const showTeddyData = (bears) => {
                 totalPrice += currentBasketContents[i].price;
                 }
 
-                if (singleChosenProduct._id ){
-                    singleChosenProduct.count +=1;
-                }
-
                 // Save the old and new data to local storage
 
                 localStorage.setItem('selectedItem', JSON.stringify(currentBasketContents));
@@ -99,7 +95,6 @@ const showTeddyData = (bears) => {
 // Link to the main page
 
 let link = document.getElementById('link');
-console.log(link);
 link.onclick = function(){
     window.location.href = 'index.html';
 }
