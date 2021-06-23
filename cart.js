@@ -1,10 +1,8 @@
-
 const firstName = document.getElementById("first-name");
 const lastName = document.getElementById("last-name");
 const address = document.getElementById("address");
 const city = document.getElementById("city");
 const email = document.getElementById("email");
-
 
 const parentElement = document.getElementById('bearCards');
 bearcard = document.createElement('div');
@@ -26,16 +24,9 @@ for (let bear of bearobjects) {
     bear['count'] = 1;
     deleteButton = document.createElement('button');
     deleteButton.setAttribute('class', 'deleteButton btn');
-    deleteButton.textContent = "-";
+    deleteButton.textContent = "Delete";
     deleteButton.onclick = removeProduct;
-
-
-    // addButton = document.createElement('button');
-    // addButton.setAttribute('class', 'addButton btn');
-    // addButton.textContent = "+";
-    // addButton.onclick = addProduct;
-    
-    
+  
     productBox = document.createElement('div');
     productBox.setAttribute('class', 'itemColumn');
     productBox.setAttribute('id', bear._id);
@@ -65,41 +56,7 @@ for (let bear of bearobjects) {
   console.log(bearobjects);
   console.log(totalItemPrice);
 
-  // New function to display cart
-
-  // function displayCart(){
-  //   let cartItems = localStorage.getItem('selectedItem');
-  //   cartItems = JSON.parse(cartItems);
-  //   console.log(cartItems);
-  //   let productContainer = document.querySelector(".products");
-
-  //   console.log(cartItems);
-
-  //   if (cartItems && productContainer){
-  //       productContainer.innerHTML = '';
-  //       Object.values(cartItems).map(bear => {
-  //         productContainer.innerHTML += `
-  //           <div class="product">
-  //             <ion-icon name="trash"></ion-icon>
-  //             <img class="small_img" src="${bear.imageUrl}">
-  //             <span>${bear.name}</span>
-  //           </div>
-
-  //           <div class="price">${bear.price}</div>
-  //           <div class="quantity">
-  //             <ion-icon name="add"></ion-icon>
-  //             <span>${bear.count}</span>
-  //             <ion-icon name="remove"></ion-icon>
-  //           </div>
-  //           <button class="btn deleteButton" id="deleteButton">-</button>
-  //         `
-  //       });
-  //   }
-  // }
-
-  // displayCart();
-
-  // Function to delete an entry from localstorage
+// Function to delete an entry from localstorage
 
 function removeProduct(e){
     let x = e.target.parentNode.id;
@@ -115,22 +72,22 @@ function removeProduct(e){
           productNumbers = parseInt(productNumbers);
           localStorage.setItem('cartNumbers', productNumbers - 1);
 
-        for (let i = 0; i <= newbearobjects.length; i++){
-          if (newbearobjects.length === 0){
-          totalItemPrice = 0;       
-          } else {
-          totalItemPrice += (newbearobjects[i].price);
-          }
-          localStorage.setItem('totalPrice', JSON.stringify(totalItemPrice));
-        }
-        }
-      
-      location.reload(); 
-    }
+          for (let i = 0; i <= newbearobjects.length; i++){
+            if (newbearobjects.length < 1){
+            totalItemPrice = 0;
+            } 
+            else {
+            totalItemPrice += (newbearobjects[i].price);
+            location.reload();
+            }
+            localStorage.setItem('totalPrice', JSON.stringify(totalItemPrice));  
+          }       
+        }     
+        location.reload();
+      }
 }
 
   let link2 = document.getElementById('link2');
-  console.log(link2);
   link2.onclick = function(){
   window.location.href = 'index.html';
   }
@@ -225,11 +182,11 @@ function validate() {
 
       .then(response => response.json())
       .then(post => {
-        //let finalPrice = post.
+        
         let finalId = post.orderId;
         console.log(finalId);
         localStorage.setItem('macska', finalId);
-      console.log('Success:', post);    
+      console.log('Success:', post);   
       })
     .catch((error) => {
     console.error('Error:', error);

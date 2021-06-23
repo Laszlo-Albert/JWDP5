@@ -10,6 +10,9 @@ const generateSinglePage = () => {
     .then((data) => {
         showTeddyData(data)
     })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
 }
  
 // Retrieving the ID from the URL
@@ -35,8 +38,6 @@ const showTeddyData = (bears) => {
                 const ddown = document.getElementById('dropdown')
                 ddown.appendChild(selection)
             }); 
-            
-            
 
             // Another method to do this would be
             
@@ -46,8 +47,6 @@ const showTeddyData = (bears) => {
             // function openBasket() {
             // window.location.href = "cart.html";
             // }
-
-            
 
             // Event listener for the add button
 
@@ -73,7 +72,6 @@ const showTeddyData = (bears) => {
 
                 let currentBasketContents = JSON.parse(localStorage.getItem('selectedItem'));
                 currentBasketContents.push(singleChosenProduct);
-                //console.log(singleChosenProduct);
 
                 // Get the total price of the products currently in the basket
 
@@ -99,11 +97,9 @@ link.onclick = function(){
     window.location.href = 'index.html';
 }
 
-
 //Creating a link to the cart page
 
 let shoppingBasket = document.getElementById('openBasket')
-console.log(shoppingBasket);
 
 shoppingBasket.onclick = function(){
 window.location.href = "cart.html";
@@ -124,5 +120,3 @@ function cartNumbers(){
 
 let badge = document.getElementById('badge');
 badge.textContent = localStorage.getItem('cartNumbers');
-
-

@@ -54,7 +54,7 @@ window.updateLink = function(link){
 }
 
 let shoppingBasket = document.getElementById('openBasket')
-console.log(shoppingBasket);
+// console.log(shoppingBasket);
 
 shoppingBasket.onclick = function(){
 window.location.href = "cart.html";
